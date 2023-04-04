@@ -20,6 +20,7 @@ const okButton = document.querySelector('#ok')
 
 // pobieranie elementu po dowolnym selektorze CSS
 const imgList = document.querySelectorAll('.thumb') // zwraca obiekt NodeList (posiada iterator, entries, keys, values)
+// const arr = Array.from(imgList)
 
 // pobieranie elementów po klasie CSS
 const priceList = document.getElementsByClassName('price') // HTMLCollection - typ mniej wygodny od NodeList (tylko iterator)
@@ -52,16 +53,20 @@ const okClone2 = okButton.cloneNode()
 okClone.remove()
 
 
+const mainActionStyles = {
+  backgroundColor: "#000"
+}
 // -----------------------------
 // Style CSS
 // -----------------------------
-mainContainer.style.background = "#000"
 mainContainer.style.marginTop = "10px"
+mainContainer.style.background = mainActionStyles.backgroundColor
 
 // Pobieranie obliczonych css-ow
 // getComputedStyle zwraca referencję do obiektu css  elementu
 // (zmiana css, powoduje zmianę w wartościach właściwości obiektu)
 const mainStyles = window.getComputedStyle(mainContainer)
+
 console.log(mainStyles.backgroundColor) // rgb(0,0,0)
 mainContainer.style.backgroundColor = 'lightblue'
 console.log(mainStyles.backgroundColor) // rgb(173,216,230) - lightblue
@@ -82,13 +87,17 @@ mainContainer.classList.remove("header")
 
 // włączenie/wyłaczenie klasy
 mainContainer.classList.toggle("header")
+
+// czy zawiera klasę
+const mainHasRedCSSClass = mainContainer.classList.contains("red")
+
 console.log('main has header: ', mainContainer.classList.contains("header"))
 
 
 // -------------------------------------
 // Zmiana dowolnego atrybutu elementu
 // -------------------------------------
-mainContainer.setAttribute('custom', '1');
+mainContainer.setAttribute('clicked', '1');
 mainContainer.setAttribute('custom2', '2');
 mainContainer.removeAttribute('custom2');
 
@@ -97,6 +106,7 @@ mainContainer.removeAttribute('custom2');
 // Praca z obiektem dataset (atrybuty data-XXX)
 // ----------------------------------------------
 mainContainer.dataset.tooltip = 'Dane do customowego tooltipa'
+mainContainer.dataset.id = 'd#$987sdhf'
 
 
 
@@ -115,7 +125,7 @@ mainContainer.dataset.tooltip = 'Dane do customowego tooltipa'
 // widoczna część elementu (z paddingiem i borderem)
 // offsetWidth/offsetHeight
 
-// widoczna eczęść elementu (bez bordera)
+// widoczna część elementu (bez bordera)
 // clientWidth/clientHeight
 
 
@@ -134,7 +144,7 @@ mainContainer.appendChild(okButton) // dodaje na końcu dzieci
 // mainContainer.append
 
 mainContainer.appendChild(okClone)
-// mainContainer.appendChild(cancelButton) // <-- przeniesione z Buttons do Main
+mainContainer.appendChild(cancelButton) // <-- przeniesione z Buttons do Main
 
 // Usuwanie dziecka
 // mainContainer.removeChild(cancelButton)
@@ -168,3 +178,12 @@ const prevElement = okButton.previousSibling
 // Dostęp do dzieci elemenut
 const mainChildren = mainContainer.children
 
+
+
+// const imieContainer = document.createElement('div')
+// imieContainer.textContent = 'Kasiek'
+// mainContainer.appendChild(imieContainer)
+
+// mainContainer.innerHTML += '<div class="active" id="asd"><span class="imie">Kasiek</span></div>'
+
+// imieContainer.classList.toggle('active')

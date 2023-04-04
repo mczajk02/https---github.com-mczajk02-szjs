@@ -2,21 +2,28 @@
 // Nasłuchiwanie na zdarzenia generowane przez obiekty
 // ----------------------------------------------------
 
-document.addEventListener("DOMContentLoaded", start)
+document.addEventListener("DOMContentLoaded", appStart)
 
-// koniec nasłuchiwania: 
+// koniec nasłuchiwania:
 // document.removeEventListener("DOMContentLoaded", start)
 
 // zdarzenie może przekazać do callback-a obiekt Event
 
 // wcześniej:
-// element.onclick = () => { } // Brrr
+// document.body.onclick = () => { } // Brrr
 // inline: <button onclick="console.log()"> Brrr^2
 
 let kulka, przycisk, mouseX, mouseY
 const get = selector => document.querySelector(selector)
 
-function start() {
+
+function appStart() {
+    get('main').addEventListener('click', () => { console.log('main clicked') })
+    get('#plotno').addEventListener('click', (ev) => {
+        // ev.stopPropagation()
+        console.log('#plotno clicked')
+    })
+
     // malowanie
     get('#plotno').addEventListener("touchmove", maluj)
 

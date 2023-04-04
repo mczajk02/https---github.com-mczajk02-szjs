@@ -2,6 +2,8 @@
 // Funkcje
 // ---------------------
 
+const { log } = require("console")
+
 // Wprowadzenie:
 // Funkcje są OBIEKTAMI. yep.
 // Funkcja konstruktora posiada właściwość "this" (jeśli wywołamy funkcję jako konstruktor - z operatorem "new")
@@ -39,15 +41,17 @@ function sumEmAll(a, b, ...rest) {
   return ret
 }
 sumEmAll(1, 2, 3, 4, 5, 6, 7)
+sumEmAll()
 
 // obiekt arguments - old way
 function sum3(a, b, c) {
   // tablica arguments przechowuje wszystkie argumenty funkcji
   console.log('[sum3] arguments:', arguments)
 }
-sum3(1)
+const asd = sum3(1)
 sum3(1, 2, 3)
 sum3(1, 2, 3, 4, 5, 6)
+sum3()
 
 
 // ---------------------
@@ -67,14 +71,16 @@ const mult = function multiply(a, b) {
   return a * b
 }
 mult()
+
+
 // przykład z mdn
 function foo(i) {
   if (i < 0) {
-    return;
+    return
   }
-  console.log(`begin: ${i}`);
+  console.log(`begin: ${i}`)
   foo(i - 1);
-  console.log(`end: ${i}`);
+  console.log(`end: ${i}`)
 }
 foo(3);
 
@@ -89,14 +95,24 @@ const sum2 = (a, b) => {
 const div = function (a, b) {
   return a / b
 }
+const multBy2 = x => x * 2
+function multBy22(x) {
+  return x * 2
+}
+const arr = [1, 2, 3, 4]
+const arrMultBy2 = arr.map(multBy2)
+
 /* odpowiednik powyższego
   let div = (a, b) => a/b
 */
 
+function onOkClick() {
+  console.log(this)
+}
 // uwaga! strzałki nie tworzą nowego kontekstu dla 'this'! (w odróżnieniu od function() { })
-// let btn = document.querySelector('#ok')
+let btn = document.querySelector('#ok')
 // let input = document.querySelector('#input')
-// btn.addEventListener('click', function () { console.log(this) }) // btn - HTMLElement
+btn.addEventListener('click', onOkClick) // btn - HTMLElement
 // btn.addEventListener('click', () => console.log(this)) // window
 
 
@@ -107,13 +123,23 @@ const div = function (a, b) {
 // zmienne f. zewn. żyją tak długo, jak żyje f. wewn.
 // do f. wewn. nie ma bezpośredniego dostępu z zewnątrz (więc nie można jej nadpisać np poprzez inny skrypt)
 
+var aaa = 123
 
-// function mama() {
-//   const dziecko = { age: 0 }
-//   return {tomek: dziecko}
-// }
-// const mamaKrysia = mama()
+function mama() {
+  let wiek = 25
+  const dziecko = { age: 0 }
+  return { tomek: dziecko }
+}
+const mamaKrysia = mama()
 
+
+// IIFE
+// const asd3 = (function(y) {
+//   let x = 10 * y
+//   return {
+
+//   }
+// })(30)
 
 const liczMachine = function (licznikStart = 5) {
   let licznik = licznikStart
@@ -131,7 +157,7 @@ let licz2 = liczMachine()
 licz()
 licz()
 licz()
-// licz2()
+licz2()
 // licz3()
 
 // 5,5, 5
@@ -158,6 +184,7 @@ const rysio = new User()
 const krzys = new User()
 
 console.log(rysio.isDead) // z funkcji
+
 delete rysio.isDead
 console.log(rysio.isDead) // z prototypu
 
@@ -172,6 +199,16 @@ Function.prototype.wirus = function () {
 // ups
 add.wirus()
 licz.wirus()
+
+// const liczby = [1, 2, 3]
+// const liczbyRazy5 = liczby.map(el => el * 5)
+
+// Array.prototype.map = function (arr) {
+//   for (let index = 0; index < arr.length; index++) {
+//     const element = arr[index];
+
+//   }
+// }
 
 
 // --------------------

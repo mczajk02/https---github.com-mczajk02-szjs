@@ -3,7 +3,7 @@
 // ------------------------
 
 const imie = 'chatGPT'
-const zainteresowania = 'Właściwie wszystko. Wiersze pisze, śpiewa,  w js-ie koduje.'
+const zainteresowania = 'Właściwie wszystko. Wiersze pisze, tańczy,  w js-ie koduje.'
 
 // Pobranie długości
 const imieLength = imie.length
@@ -20,6 +20,9 @@ const czyTanczy = zainteresowania.includes('tańczy')
 
 // Zamiana ciągu znaków
 zainteresowania.replace('tańczy', 'śpiewa')
+
+// Zamiana wszystkich wystąpień podanego ciągu znaków
+zainteresowania.replaceAll('.', '!')
 
 // Czy zaczyna się od 
 const czyJestToChatGPT = imie.startsWith('chat')
@@ -46,3 +49,19 @@ zainteresowania.toLocaleUpperCase()
 imie.trimStart()
 imie.trimEnd()
 imie.trim()
+
+// template strings
+const personName = 'Ania'// "Ania", 
+const personLastname = 'Kordas'
+
+const fullName = 'Nazywam się ' + personName + ' ' + personLastname
+const fullName2 = `Nazywam się ${personName} ${personLastname}`
+
+// wyrażenia regularne
+const wiek = 'Mam 13 rok'
+const wiekRegex = /.\d{1,2}/;
+
+const parsowanyWiek = wiek.match(wiekRegex)
+console.log(+parsowanyWiek?.[0])
+
+// wyszukiwanie wielu wystąpień: .matchAll()

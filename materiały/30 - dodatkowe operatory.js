@@ -2,8 +2,8 @@
 // inkrementacja/dekrementacja
 // --------------------------------
 let licznik = 0
-licznik++
-++licznik
+console.log(licznik++);
+console.log(++licznik);
 --licznik
 licznik--
 
@@ -16,14 +16,16 @@ licznik--
 const foo = { bar: { baz: () => { } } };
 const bar = ''
 
+
 // problem: 
-if (foo && foo.bar) {
+// foo.bar = {} 
+if (foo && foo.bar && foo.bar.baz) {
   const x = foo.bar.baz()
 }
 // lub const x = foo && foo.bar && foo.baz()
 
 // optional chaining
-const x = foo?.bar?.baz();
+const x = foo?.bar?.baz?.();
 // ? nie robi 'falsy' values w przeciwieństwie do && w if, 
 
 
@@ -31,7 +33,8 @@ const x = foo?.bar?.baz();
 // Nullish coalescing
 // --------------------------
 // problem:
-const y = (foo !== null && foo !== undefined) ? foo : bar;
+const y = (foo != null && foo !== undefined) ? foo : bar;
+// const zz = foo || 'wartość domyślna'
 // rozw
 const z = foo ?? bar;
 

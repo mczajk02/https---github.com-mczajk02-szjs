@@ -1080,6 +1080,29 @@ const zdjecia = [
     { "format": "jpeg", "width": 4579, "height": 3271, "filename": "1084_h13Y8vyIXNU.jpeg", "id": 1084, "author": "Jay Ruzesky", "author_url": "https://unsplash.com/@wolsenburg", "post_url": "https://unsplash.com/photos/h13Y8vyIXNU" }
 ]
 
+// const stat = [{ author: 'pauljarvis', count: 10 }, { author: 'rysiek', count: 20 }]
+
+// // ['panX', 'paniY']
+
+// const data = zdjecia.reduce(
+//     (authorImagesCount, zdjecie) => {
+//         const existingAuthor = authorImagesCount.find(el => el.author === zdjecie.author)
+//         if (existingAuthor) {
+//             existingAuthor.count++
+//         } else {
+//             const author = {
+//                 author: zdjecie.author,
+//                 count: 1
+//             }
+//             authorImagesCount.push(author)
+//         }
+//         return authorImagesCount
+//     }, []
+// )
+// data
+
+
+
 // const xx = [1,'aaa', {a,s,d}]
 // xx[2].a = 'sdf'
 // const kopiaX = [...x]
@@ -1140,6 +1163,7 @@ const authorImgCount = imgAuthors.reduce(
     }
     , {}
 )
+authorImgCount
 
 
 console.log('obiekt authimgcount', authorImgCount)

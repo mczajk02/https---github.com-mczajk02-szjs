@@ -3,11 +3,10 @@
 // ------------
 
 /* Wprowadzenie:
- co w javascript nie jest obiektem: liczby, teksty, boole, null i undefined (prymitywy)
+ co w javascript nie jest obiektem: liczby, teksty, boolean, null i undefined (prymitywy)
  ..prawie - liczby, teksty i boole mają metody (ale nie można ich zmieniać - zobacz )
 obiekty są KOLEKCJAMI właściwości (trochę jak tablice asocjacyjne)
 */
-
 
 // ------------------
 // Literał obiektu
@@ -23,7 +22,7 @@ const student = {
 		lista: ['krzychu', 'zdzichu', 'krycha']
 	},
 	czySpozywal: function () {
-		return hour > 12 ? true : false
+		return hour > 12
 	},
 	oceny: {
 		'js': [5]
@@ -50,6 +49,7 @@ function zbudujStudenta(imie, nazwisko, wiek, wybranePrzedmioty, koledzy, oceny)
 }
 let student2 = zbudujStudenta('janek', 'nowak', 20, ['js', 'c#'], { lista: [] }, { 'js': [4], 'c#': [3], 'filozofia': [5] });
 let student3 = zbudujStudenta('kasia', 'kowal', 19, ['js', 'c#'], { lista: [] }, { 'js': [5], 'c#': [5], 'filozofia': [5] });
+// let student3 = zbudujStudenta({ imie: 'kasia', nazwisko: 'kowal', wiek: 19, oceny: { 'js': [4] } });
 
 let fabrykaLodow = function (rodzaj) {
 	return {
@@ -97,6 +97,11 @@ class Student {
 	get punktyZycia() {
 		return this.#punktyZycia
 	}
+	// set punktyZycia(val) {
+	// 	if (val < 100) {
+	// 		this.#punktyZycia = val
+	// 	}
+	// }
 	getPunktyZycia() {
 		return this.#punktyZycia
 	}
@@ -104,7 +109,7 @@ class Student {
 		this.imie = imie;
 		this.nazwisko = nazwisko;
 		this.wiek = wiek;
-		this['wybran-przedmioty'] = wybranePrzedmioty;
+		this['wybrane-przedmioty'] = wybranePrzedmioty;
 		// this[wybranePrzedmiotyName] = wybranePrzedmioty;
 		this.koledzy = koledzy;
 		this.czySpozywal =
@@ -125,7 +130,9 @@ console.log(
 	student.imie + ' ' + student.nazwisko
 )
 // korzystanie z wlasciwosci obiektu jak z tablicy asocjacyjnej
-// student['imie']
+// const coChceszZObiektu = 'imie'
+// student[coChceszZObiektu]
+// student['wybrane-przedmioty']
 
 // przekazywanie obiektów odbywa się zawsze przez referencję
 let s2 = student
@@ -253,7 +260,6 @@ const tab = [] /// tab.prototype -> Array.prototype
 // wtedy: xiaocar.__proto__ === Samochod.prototype
 
 
-
 // ---------------------------------
 // Dostęp do kolekcji właściwości
 // ---------------------------------
@@ -269,4 +275,4 @@ const entries = Object.entries(st4)
 
 
 // Sprawdzenie czy obiekt posiada właściwość o podanej nazwie (z wykluczeniem właściwości z prototypu)
-const czyStudentMaImie = Object.hasOwn('imie')
+const czyStudentMaImie = Object.hasOwn(st4, 'imie')

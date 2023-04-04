@@ -14,11 +14,11 @@ if (czyPokazacWynik == true) {
 
 const wiek = 18
 if (wiek >= 18) {
-  console.log('pełnoletni');
+  console.log('pełnoletni')
 } else if (wiek >= 3) {
-  console.log('dziecko');
+  console.log('dziecko')
 } else {
-  console.log('dziecko poniżej trzech lat');
+  console.log('dziecko poniżej trzech lat')
 }
 
 

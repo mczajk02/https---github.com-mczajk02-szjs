@@ -1,0 +1,11 @@
+Live Server (serwer lokalny dla projektu)
+Quokka (płatna) (uruchamianie kodu w edytorze)
+Error Lens (podgląd błędów
+ES Lint (formatowanie kodu)
+GitLens (praca z gitem)
+IntelliCode (podpowiedzi do kodu)
+IntelliCode API Usage Examples (przykłady użycia metod)
+Mitrhril Emmet (szybsze pisanie html/css)
+Path Intellisense (podpowiedzi ścieżek)
+Turbo Console Log (szybki console.log)
+TabNine/Github Copilot (AI do pisania kodu)

@@ -17,7 +17,7 @@ const USER_KEYS = {
 }
 
 // nie mogę
-USER_KEYS = {}
+// USER_KEYS = {}
 // mogę
 USER_KEYS.privateKey = 'new private key'
 
@@ -42,5 +42,5 @@ x = null
 x = function () { }
 x = {}
 
-x.includes('a')
+// x.includes('a')
 console.log('hello')

@@ -17,6 +17,7 @@ const dyszka = '' + dziesiec
 const dyszka2 = `${dziesiec}`
 const dyszka3 = String(dziesiec)
 
+
 // cokolwiek do Boolean
 const prawdziwaDyszka = !!dziesiec
 const prawdziwaDyszka2 = Boolean(dziesiecSlownie)

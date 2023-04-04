@@ -2,8 +2,11 @@
 // Pętle
 // ----------------------
 
-let tab3 = ['jeden', 'dwa', 'trzy', 'cztery', 'pięć']
+let tab3 = ['jeden', 'dwa', 'trzy', 'koniec', 'cztery', 'pięć']
+tab3[100] = 'asd'
 
+// tab3.length = 10
+tab3
 
 // Pętla for
 // iterowanie po tablicach (korzystamy z length)
@@ -13,7 +16,7 @@ for (let index = 0; index < tab3.length; index++) {
 
 // przerywanie itearacji
 for (let index = 0; index < tab3.length; index++) {
-    if (index > 2) {
+    if (tab3[index] === 'koniec') {
         break
     }
     console.log(tab3[index])
@@ -26,7 +29,6 @@ for (let index = 0; index < tab3.length; index++) {
     }
     console.log(tab3[index])
 }
-
 
 // Pętla for-of (korzysta z length)
 for (let el of tab3) {
@@ -77,6 +79,7 @@ const albums = {
     'queen': 'made in heavaen',
 }
 
-for (albumName in albums) {
-    console.log(album);
+for (band in albums) {
+    console.log(band);
+    console.log(albums[band])
 }
